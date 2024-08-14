@@ -1,0 +1,348 @@
+
+
+
+
+
+
+:root{
+
+    --color1:#6495ed ;
+    --color2:#666666 ;
+
+}
+
+
+
+
+
+*{
+    margin: 0px; 
+    padding:0px ;
+    
+
+}
+
+
+.header{
+    
+    border : 1px solid black ;
+    width : 100vw ;
+    height : 10vh ;
+    background-color: var(--color1);
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 1000;
+    padding-top:2vh ;
+    box-sizing: border-box;
+    margin-bottom: 5vh; 
+}
+
+
+.main{
+    overflow : auto ;
+}
+
+
+
+.left{
+     
+    /* background-color: greenyellow; */
+    float : left ;
+    width : 30vw ;
+    height : 85vh ;
+    margin-left: 3vw;
+    /* border : 1px solid black ; */
+    
+}
+
+
+form *{
+    display : block ;
+    width : 100% ;
+}
+
+form{
+    margin:10px ;
+}
+
+
+form>label{
+
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-family: "Playwrite CL", cursive;
+}
+
+form>input{
+
+    height : 5vh ;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+
+}
+
+
+
+
+form>p{
+
+    width : 100% ;
+
+}
+
+form>p{
+
+    text-align: center;
+   
+    border-bottom : 1px solid black ;
+    
+
+    margin-bottom: 10px;
+
+}
+
+form>button{
+
+
+    height : 8vh ;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color:white ;
+
+    
+
+}
+
+form>.b1{
+    background-color: var(--color1);;
+}
+
+
+form>.b2{
+
+    background-color: var(--color2);
+}
+
+
+
+
+
+.boxleft{
+
+    /* border : 1px solid black ; */
+    width : 70% ;
+    height : 100% ;
+    float : left ;
+    
+}
+
+
+.boxleft *{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.boxright{
+
+    /* border : 1px solid black ; */
+    width : 28% ;
+    height : 100% ;
+    float : right ;
+    
+}
+
+
+
+.boxright  img{
+
+    width : 100px;
+    height: 100px;
+
+}
+
+
+.boxright h3{
+    text-indent: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+.right{
+    /* display: inline-block; */
+    float :right ;
+    /* background-color: purple; */
+    width : 60vw ;
+    height : 85vh ;
+
+    /* border : 1px solid black ; */
+    border-radius: 10px;
+    padding-right: 5vw;
+    box-sizing: border-box;
+
+   
+  }
+
+
+.upper{
+
+    width : 100% ;
+    height : 40% ;
+    border : 1px solid black ;
+    background-color:var(--color1);
+    border-radius: 10px;
+
+}
+
+
+.middle{
+
+    /* border: 1px solid black; */
+    width : 100% ;
+    height : 10% ;
+    box-sizing: border-box;
+    padding-top:10px ;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+
+.lower{
+
+    width : 100% ;
+    height : 49% ;
+    /* border : 1px solid black ; */
+    border-radius: 10px;
+
+}
+
+.lower >.box{
+    display : inline-block;
+    width : 23% ;
+    height : 80% ;
+    /* border : 1px solid black ; */
+    margin-right :10px ;
+    background-color: var(--color2);
+    border-radius: 10px;
+
+}
+
+
+
+.lower > .box p {
+
+    margin-top: 10px ;
+    text-indent: 10px;
+    box-sizing: border-box;
+
+}
+
+
+
+.lower>.box1 > img{
+
+    width : 40px ;
+    height : 40px ;
+    margin-left : 40px ;
+
+
+
+}
+
+.box{
+    overflow : auto ;
+}
+
+
+body {
+
+    overflow : scroll ;
+}
+
+
+
+.lower>.box2 > img{
+
+    width : 40px ;
+    height : 40px ;
+    margin-left : 40px ;
+
+
+
+}
+
+
+
+
+
+.lower>.box3 > img{
+
+    width : 40px ;
+    height : 40px ;
+    margin-left : 40px ;
+
+
+
+}
+
+
+.lower>.box4 > img{
+
+    width : 40px ;
+    height : 40px ;
+    margin-left : 40px ;
+
+
+
+}
+
+
+
+
+.lower box  {
+    overflow: auto;
+}
+
+
+.lower{
+
+    overflow: auto;
+}
+
+
+
+
+
+@media only screen and (max-width: 700px) {
+
+
+    .left  , .right {
+      float : none ;
+      width : 95vw ;
+
+    }
+
+    .left{
+        height : 50vh ;
+    }
+
+    .right{
+        margin-left : 5vw ;
+    }
+   
+  }
+
+
+
+
+
+
+
