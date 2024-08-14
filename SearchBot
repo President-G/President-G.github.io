@@ -1,0 +1,71 @@
+import tkinter as tk
+from tkinter import scrolledtext
+import requests
+from bs4 import BeautifulSoup
+from googleapiclient.discovery import build
+
+# Google Search API Function
+def google_search(query):
+    api_key = 'AIzaSyCvTmfYHJyIk3c6BFk7I0tWApVaFCUBc3E'
+    search_engine_id = 'f01be9f691d7e4337'
+
+    try:
+        service = build("customsearch", "v1", developerKey=api_key)
+        res = service.cse().list(q=query, cx=search_engine_id).execute()
+        return res['items']
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+# Web Scraping Function
+def scrape_webpage(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+        content = soup.find_all('p')
+        text = ' '.join([p.get_text() for p in content])
+        return text
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+# Function to handle the user's query
+def handle_query():
+    user_query = query_entry.get()
+    response_text.delete('1.0', tk.END)  # Clear previous responses
+    
+    if user_query.startswith("scrape:"):
+        url = user_query.replace("scrape:", "").strip()
+        response_text.insert(tk.END, f"Scraping URL: {url}\n")
+        content = scrape_webpage(url)
+        response_text.insert(tk.END, f"Content:\n{content}\n\n")
+    else:
+        response_text.insert(tk.END, f"User: {user_query}\n")
+        results = google_search(user_query)
+        if isinstance(results, str):
+            response_text.insert(tk.END, f"Error: {results}\n\n")
+        else:
+            for result in results:
+                response_text.insert(tk.END, f"Title: {result['title']}\n")
+                response_text.insert(tk.END, f"URL: {result['link']}\n")
+                response_text.insert(tk.END, f"Snippet: {result['snippet']}\n\n")
+
+    query_entry.delete(0, tk.END)  # Clear the query entry for the next input
+
+# Initialize the main window
+root = tk.Tk()
+root.title("Programming Assistant")
+
+# Query input field
+query_entry = tk.Entry(root, width=60)
+query_entry.pack(pady=50)
+
+# Submit button
+submit_button = tk.Button(root, text="Ask", command=handle_query)
+submit_button.pack()
+
+# Response display area
+response_text = scrolledtext.ScrolledText(root, width=100, height=50)
+response_text.pack(pady=10)
+
+# Run the main event loop
+root.mainloop()
